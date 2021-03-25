@@ -13,8 +13,14 @@ export const getCurrentLanguage = (state:IMovies) => state.filters['language'];
 
 export const sortedMoviesSelector = createSelector(
     [getMovies, getSearchMovieName],
-    ( movies, searchMovieName ) =>
-        movies.filter(({ original_title }) => original_title.toLowerCase().includes(searchMovieName))
+    ( movies, searchMovieName ) => {
+        let sortedMovies = movies.filter(({ original_title }) => original_title.toLowerCase().includes(searchMovieName))
+        let renderMovies = [];
+        console.log(sortedMovies); 
+        (sortedMovies.join() === '')?(renderMovies = movies):(renderMovies = sortedMovies)
+        console.log(renderMovies);
+        return renderMovies;
+    }
 );
 
 export const getLanguagesSelector = createSelector(

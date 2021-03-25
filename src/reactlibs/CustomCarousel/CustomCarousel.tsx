@@ -7,7 +7,8 @@ import { IMAGE_URL } from 'src/constants/api';
 import { responsive } from './styles';
 
 export type TProps = {
-    movies: Array<IMovie>
+    movies: Array<IMovie>,
+    sortedMovies: any,
 }
 
 const setting = {
@@ -26,10 +27,10 @@ const setting = {
     transitionDuration: 500,
     removeArrowOnDeviceType: ["tablet", "mobile"],
 }
-
-const CustomCarousel = ({ movies }: TProps) => (
+// @ts-ignore
+const CustomCarousel = ({ movies, sortedMovies }: TProps) => (
     <Carousel { ...setting } >
-        {movies.map((item) =>
+        {sortedMovies.map((item: any) =>
             <FilmCard
                 key={ item.title }
                 alt='Movie Poster'
