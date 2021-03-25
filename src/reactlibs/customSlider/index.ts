@@ -1,3 +1,3 @@
-import CustomSlider from './CustomSlider';
+import CustomSlider from 'src/reactlibs/customSlider/CustomSlider';
 
 export default CustomSlider;

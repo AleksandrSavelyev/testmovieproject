@@ -13,6 +13,7 @@ export type TProps = {
 const SortBy: FC<TProps> = ({ sortBy, sendFilterInfo, setSortByToStore }) => {
     const handleChangeSort = (event: React.ChangeEvent<{name?: string | undefined; value: unknown; }>) => {
         const currentSort: keyof TFilter | string = (event.target as HTMLSelectElement ).value;
+        // @ts-ignore
         sendFilterInfo({ filter: 'sort_by', value: discoverKeys[currentSort] });
         setSortByToStore(currentSort);
     }

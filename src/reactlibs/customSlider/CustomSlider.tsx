@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from '@material-ui/core/Slider';
-import useStyles from './style';
+// @ts-ignore
+import useStyles from 'src/reactlibs/CustomSlider/style';
 
 type TProp = {
     onChange?: ((event: React.ChangeEvent<{}>, value: (number | number[])) => void);

@@ -33,6 +33,7 @@ function* setFilterInfo(action: ReturnType<typeof actions.setFilterInfo>){
 
 function* getDiscoverMovies(){
     try {
+        // @ts-ignore
         const filters = yield select(getFilters) as any;
         const { results } = yield call(requestData, urls.DISCOVER_MOVIE, filters);
          yield put(actions.setMoviesStore(results));
@@ -43,6 +44,7 @@ function* getDiscoverMovies(){
 
 function* getLanguages(){
     try {
+        // @ts-ignore
         const results  = yield requestData(urls.PRIMARY_TRANSLATIONS);
         yield put(actions.setLanguagesToStore(results));
     } catch (err) {

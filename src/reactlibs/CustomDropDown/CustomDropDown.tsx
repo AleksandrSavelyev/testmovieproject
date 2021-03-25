@@ -7,7 +7,7 @@ import { useStyles } from './styles';
 
 type TProps = {
     value?: string;
-    mapKey?: string;
+    mapKey?: any;
     options: Array<TOption | TTempOption>;
     onChange: (event: React.ChangeEvent<{ name?: string | undefined; value: unknown; }>) => void;
 }
@@ -30,9 +30,8 @@ const CustomDropDown: React.FC<TProps> = ({
             >
                 {
                     options.map((item) => (
-                      <MenuItem key={item[mapKey]} value={item[mapKey]}>
-                          {item[mapKey]}
-                        </MenuItem>
+                        // @ts-ignore
+                      <MenuItem key={item[mapKey]} value={item[mapKey]} children={item[mapKey]} />
                     ),
                     )
                 }
