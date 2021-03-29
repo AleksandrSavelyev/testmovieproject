@@ -30,6 +30,7 @@ const CustomSlider = ({ onChange, value }: TProp) => {
                 valueLabelDisplay="auto"
                 step={defaultStyle.step}
                 value={value}
+                // @ts-ignore
                 onChangeCommitted={onChange}
                 min={defaultStyle.min}
                 max={defaultStyle.max}

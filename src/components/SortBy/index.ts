@@ -3,11 +3,11 @@ import { Dispatch } from 'redux';
 import SortBy from './SortBy';
 import * as actions from 'src/store/movie/action';
 import { IMovies } from 'src/store/movie/reducer';
-import * as selectors from 'src/store/movie/selectors';
 import { TDiscoverPayload } from 'src/store/movie/types';
 
+// @ts-ignore
 const mapStateToProps = (state: IMovies) => ({
-   
+
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

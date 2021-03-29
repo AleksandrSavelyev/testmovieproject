@@ -30,16 +30,17 @@ const setting = {
     transitionDuration: 500,
     removeArrowOnDeviceType: ["tablet", "mobile"],
 }
-
+// @ts-ignore
 const CustomCarousel = ({ sortedMovies, setIdToStore, getMovieInfoById }: TProps) => {
     const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         // setIdToStore((event.target as HTMLButtonElement).id);
         console.log((event.target as HTMLButtonElement).id);
+        // @ts-ignore
         getMovieInfoById((event.target as HTMLButtonElement).id);
     }
 
     return (<Carousel { ...setting } >
-        {sortedMovies.map((item) =>
+        {sortedMovies.map((item: any) =>
         <Link href='/about_movie'>
             <FilmCard
                 id={item.id}

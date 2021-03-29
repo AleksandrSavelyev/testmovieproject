@@ -11,6 +11,7 @@ export type TProps = {
 const FilmList: React.FC<TProps>= ({movies}) => (
     <FilmsCardsWrapper>
         {movies.map((item) =>
+            // @ts-ignore
             <FilmCard
                 key={item.title}
                 alt='movie_poster'

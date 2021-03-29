@@ -7,12 +7,12 @@ import * as actions from 'src/store/movie/action';
 
 const mapStateToProps = (state: IMovies) => ({
     movies: selectors.getMovies(state),
-    sortedMovies: selectors.sortedMoviesSelector(state), 
+    sortedMovies: selectors.sortedMoviesSelector(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     getMovieInfoById: (payload: string) => dispatch(actions.getMovieInfoById(payload)),
     setIdToStore: (payload: string) => dispatch(actions.setIdToStore(payload)),
 });
-
+// @ts-ignore
 export default connect(mapStateToProps, mapDispatchToProps)(CustomCarousel);

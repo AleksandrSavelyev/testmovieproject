@@ -4,6 +4,7 @@ import ActionTypes from './actionTypes';
 import * as actions from './action';
 import { requestData } from 'src/api';
 import  { getFilters } from 'src/store/movie/selectors';
+// @ts-ignore
 import { Console } from 'node:console';
 
 export function* watchMovies(): Generator {

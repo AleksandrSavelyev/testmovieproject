@@ -8,8 +8,10 @@ export type TProps = {
 
 const VoteAverage: React.FC<TProps> = ({ sendFilterInfo }) => {
         const [sliderValue, setValue] = React.useState([0, 10]);
+    // @ts-ignore
         const handleChangeVote = (event: React.ChangeEvent<{}>, newValue: number[]) => {
                 console.log(newValue);
+            // @ts-ignore
                 const currentVote: number[] = newValue;
                 sendFilterInfo({filter: 'vote_average.lte', value: newValue[1]})
                 sendFilterInfo({filter: 'vote_average.gte', value: newValue[0]})

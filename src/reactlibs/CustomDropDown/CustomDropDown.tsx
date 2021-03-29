@@ -29,9 +29,14 @@ const CustomDropDown: React.FC<TProps> = ({
                 value={value}
             >
                 {
-                    options.map((item) => (
+                    // @ts-ignore
+                    options.map((item: any) => (
+                            // @ts-ignore
                       <MenuItem key={item[mapKey]} value={item[mapKey]}>
-                          {item[mapKey]}
+                          {
+                              // @ts-ignore
+                              item[mapKey]
+                          }
                         </MenuItem>
                     ),
                     )

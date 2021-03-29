@@ -12,6 +12,7 @@ const SortBy: React.FC<TProps> = ({ sendFilterInfo }) => {
     const [sortBy, setSortBy] = React.useState('popularity');
     const handleChangeSort = (event: React.ChangeEvent<{name?: string | undefined; value: unknown; }>) => {
         const currentSort: keyof TFilter | string = (event.target as HTMLSelectElement ).value;
+        // @ts-ignore
         sendFilterInfo({ filter: 'sort_by', value: discoverKeys[currentSort] });
         setSortBy(currentSort);
     }
