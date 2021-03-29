@@ -9,7 +9,6 @@ export const getServerSideProps= wrapper.getServerSideProps(async ({ store }) =>
     await store.dispatch(getMoviesRequest())
     await store.dispatch(getLanguages())
     store.dispatch(END);
-    // @ts-ignore
     await store.sagaTask.toPromise()
 });
 

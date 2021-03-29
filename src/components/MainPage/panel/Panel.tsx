@@ -2,13 +2,17 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
     Wrapper,
+    WrapperData,
     WrapperVote,
     WrapperFilter,
+    WrapperDivVote,
     WrapperLanguage,
     VoteTranslation,
+    WrapperDivByName,
+    WrapperDivSortBy,
     WrapperDataPicker,
     WrapperSortByName,
-    FilterTranslation,
+    WrapperDivLanguage,
 } from './style';
 import SortBy from 'src/components/SortBy';
 import DatePicker from 'src/reactlibs/DatePicker';
@@ -24,22 +28,29 @@ const Panel = () => {
                 <VoteTranslation>
                     {t('Vote Average')}
                 </VoteTranslation>
-                <VoteAverage data-at='wrapper-vote_vote-average'/>
+                <WrapperDivVote>
+                    <VoteAverage data-at='wrapper-vote_vote-average'/>
+                </WrapperDivVote>
             </WrapperVote>
             <WrapperSortByName data-at='wrapper_wrapper-sort-by-name'>
-                <FilterByName data-at='wrapper-sort-by-name_filter-by-name'/>
+                <WrapperDivByName>
+                    <FilterByName data-at='wrapper-sort-by-name_filter-by-name' />
+                </WrapperDivByName>
             </WrapperSortByName>
             <WrapperLanguage data-at='wrapper_wrapper-language'>
-                <LanguageDropDown data-at='wrapper-language_language-drop-down'/>
+                <WrapperDivLanguage>
+                    <LanguageDropDown data-at='wrapper-language_language-drop-down'/>
+                </WrapperDivLanguage>
             </WrapperLanguage>
             <WrapperFilter data-at='wrapper_wrapper-filter'>
-                <FilterTranslation>
-                    {t('Sort By')}
-                </FilterTranslation>
-                <SortBy data-at='wrapper-filter_sort-by'/>
+                <WrapperDivSortBy>
+                    <SortBy data-at='wrapper-filter_sort-by'/>
+                </WrapperDivSortBy>
             </WrapperFilter>
             <WrapperDataPicker data-at='wrapper_wrapper-data-picker'>
-                <DatePicker data-at='wrapper-data-picker_date-picker'/>
+                <WrapperData>
+                    <DatePicker data-at='wrapper-data-picker_date-picker'/>
+                </WrapperData>
             </WrapperDataPicker>
         </Wrapper>
     )

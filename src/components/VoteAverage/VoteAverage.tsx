@@ -1,23 +1,22 @@
 import * as React from 'react';
-// @ts-ignor
-import CustomSlider from 'src/reactlibs/customSlider';
-import { TFilter } from 'src/store/commonTypes';
+import CustomSlider from 'src/reactlibs/CustomSlider';
 import { TDiscoverPayload } from 'src/store/movie/types';
 
 export type TProps = {
     sendFilterInfo: (value: TDiscoverPayload) => void;
-    voteAverage: number;
 };
 
-const VoteAverage: React.FC<TProps> = ({ voteAverage, sendFilterInfo }) => {
-    // @ts-ignore
-    const handleChangeVote = (event: React.ChangeEvent<{}>, value: number | number[]) => {
-        // @ts-ignore
-        const currentVote: keyof TFilter = value;
-        sendFilterInfo({filter: 'vote_average.lte', value: currentVote})
-    }
+const VoteAverage: React.FC<TProps> = ({ sendFilterInfo }) => {
+        const [sliderValue, setValue] = React.useState([0, 10]);
+        const handleChangeVote = (event: React.ChangeEvent<{}>, newValue: number[]) => {
+                console.log(newValue);
+                const currentVote: number[] = newValue;
+                sendFilterInfo({filter: 'vote_average.lte', value: newValue[1]})
+                sendFilterInfo({filter: 'vote_average.gte', value: newValue[0]})
+                setValue(newValue);
+        }
 
-    return <CustomSlider value={voteAverage} onChange={handleChangeVote}/>
+    return <CustomSlider value={sliderValue} onChange={handleChangeVote}/>
 };
 
 export default VoteAverage;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import { useStyles } from './styles';
 import { useTranslation } from 'react-i18next';
 
 export type TProps = {
@@ -20,6 +21,7 @@ const CustomButton = ({
 }: TProps) => {
 
     const { t } = useTranslation();
+    const classes = useStyles();
 
     return (
         <Button
@@ -27,6 +29,7 @@ const CustomButton = ({
             color={color}
             variant={variant}
             onClick={onClick}
+            className={classes.text}
         >
             {t(textKey)}
         </Button>

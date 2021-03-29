@@ -5,10 +5,13 @@ import { IMovie } from 'src/store/movie/types';
 import FilmCard from 'src/reactlibs/FilmCard';
 import { IMAGE_URL } from 'src/constants/api';
 import { responsive } from './styles';
+import Link from 'next/link';
 
 export type TProps = {
     movies: Array<IMovie>,
     sortedMovies: any,
+    setIdToStore: (value: string) => void;
+    getMovieInfoById: () => void;
 }
 
 const setting = {
@@ -27,23 +30,35 @@ const setting = {
     transitionDuration: 500,
     removeArrowOnDeviceType: ["tablet", "mobile"],
 }
-// @ts-ignore
-const CustomCarousel = ({ movies, sortedMovies }: TProps) => (
-    <Carousel { ...setting } >
-        {sortedMovies.map((item: any) =>
+
+const CustomCarousel = ({ sortedMovies, setIdToStore, getMovieInfoById }: TProps) => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        // setIdToStore((event.target as HTMLButtonElement).id);
+        console.log((event.target as HTMLButtonElement).id);
+        getMovieInfoById((event.target as HTMLButtonElement).id);
+    }
+
+    return (<Carousel { ...setting } >
+        {sortedMovies.map((item) =>
+        <Link href='/about_movie'>
             <FilmCard
+                id={item.id}
                 key={ item.title }
                 alt='Movie Poster'
                 color='textSecondary'
                 title={ item.title }
                 image={`${IMAGE_URL}${item.poster_path}`}
                 variant='body2'
+                overview={item.overview}
                 popularity={ item.popularity }
                 vote_count={ item.vote_count }
                 vote_average={ item.vote_average }
+                original_title={item.original_title}
+                onClick={handleClick}
             />
+            </Link>
         )}
     </Carousel>
-);
-
+    );
+}
 export default CustomCarousel;

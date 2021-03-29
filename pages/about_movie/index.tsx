@@ -1,5 +1,7 @@
-import AboutMoviePage from './AboutMoviePage';
+import AboutMoviePage from 'src/components/AboutMoviePage';
 
-const IndexPage = () => <AboutMoviePage/>
+const IndexPage = () => (
+    <AboutMoviePage/>
+)
 
 export default IndexPage;

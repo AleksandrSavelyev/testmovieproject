@@ -4,12 +4,14 @@ import { IMovie } from './types';
 
 export interface IMovies {
     movies: IMovie[];
+    review: any;
     loaded: boolean;
     filters: Filters,
-    sortBy: string,
+    movieInfo: object,
     languages: Array<string>,
     sortedByValue: string,
     searchMovieName: string,
+    currenntMovieId: string, 
 }
 
 export type Filters = {
@@ -18,19 +20,23 @@ export type Filters = {
     'release_date.gte': string,
     'release_date.lte': string,
     'vote_average.lte': string,
+    'vote_average.gte': string,
 }
 
 const initialState: IMovies = {
     movies: [],
+    review: [],
     loaded: false,
+    currenntMovieId: '', 
     searchMovieName: '',
     languages: ['en-US'],
-    sortBy: 'popularuty',
+    movieInfo: {},
     filters: {
         'release_date.gte': new Date().toISOString().slice(0, 10),
         'release_date.lte': new Date().toISOString().slice(0, 10),
         'language': 'en-US',
         'sort_by': 'popularity',
+        'vote_average.gte': '1',
         'vote_average.lte': '10',
     },
     sortedByValue: '',
@@ -69,24 +75,29 @@ const reducer = (state = initialState, action: Action) => {
             languages: action.payload,
         };
     }
-    case ActionTypes.SET_SORT_BY_TO_STORE: {
-        return {
-            ...state,
-            loaded: false,
-            sortBy: action.payload,
-        };
-    }
     case ActionTypes.SET_MOVIES_STORE: {
         return {
             ...state,
             loaded: false,
-            movies: action.payload,
+            movies: action.payload,  
         };
     }
     case ActionTypes.SEARCH_MOVIE_NAME: {
         return {
             ...state,
             searchMovieName: action.payload
+        }
+    }
+    case ActionTypes.SET_ID_TO_STORE: {
+        return {
+            ...state,
+            currenntMovieId: action.payload
+        }
+    }
+    case ActionTypes.SET_MOVIE_INFO_TO_STORE: {
+        return {
+            ...state,
+            movieInfo: action.payload
         }
     }
     case ActionTypes.SET_FILTER_INFO: {
@@ -99,6 +110,13 @@ const reducer = (state = initialState, action: Action) => {
             loaded: false,
         };
     }
+        case ActionTypes.SET_REVIEW: {
+            return {
+                ...state,
+                loaded: false,
+                review: action.payload
+            }
+        }
     case ActionTypes.GET_INITIAL_STATE: {
         return {
             ...state,

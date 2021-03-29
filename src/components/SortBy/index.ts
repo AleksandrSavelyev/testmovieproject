@@ -7,7 +7,7 @@ import * as selectors from 'src/store/movie/selectors';
 import { TDiscoverPayload } from 'src/store/movie/types';
 
 const mapStateToProps = (state: IMovies) => ({
-    sortBy: selectors.getSortBy(state)
+   
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

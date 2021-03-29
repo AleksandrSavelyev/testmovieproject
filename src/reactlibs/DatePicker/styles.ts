@@ -5,7 +5,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         container: {
             width: '50%',
             display: 'flex',
-            flexDirection: 'column',
             justifyContent: 'space-around',
         },
         textField: {

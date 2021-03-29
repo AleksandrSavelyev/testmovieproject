@@ -25,7 +25,7 @@ const DatePicker: React.FC<TProps> = ({ firstDate, secondDate, sendFilterInfo })
     }
 
     return (
-        <Box >
+        <Box>
             <Typography gutterBottom variant='h6'>
                 {/*{t('release-date')}*/}
             </Typography>

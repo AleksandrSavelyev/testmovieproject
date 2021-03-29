@@ -1,11 +1,10 @@
 import React from 'react';
 import Slider from '@material-ui/core/Slider';
-// @ts-ignore
 import useStyles from './style';
 
 type TProp = {
-    onChange?: ((event: React.ChangeEvent<{}>, value: (number | number[])) => void);
-    value: number | number[];
+    onChange?: ((event: React.ChangeEvent<{}>, value: (number[])) => void);
+    value: number[];
 }
 
 const defaultStyle = {
@@ -25,13 +24,12 @@ const CustomSlider = ({ onChange, value }: TProp) => {
     return (
         <div className={classes.root}>
             <Slider
-                defaultValue={defaultStyle.defaultValue}
+                //defaultValue={defaultStyle.defaultValue}
                 getAriaValueText={valuetext}
-                aria-labelledby="discrete-slider"
+                aria-labelledby="range-slider"v
                 valueLabelDisplay="auto"
                 step={defaultStyle.step}
                 value={value}
-                marks
                 onChangeCommitted={onChange}
                 min={defaultStyle.min}
                 max={defaultStyle.max}

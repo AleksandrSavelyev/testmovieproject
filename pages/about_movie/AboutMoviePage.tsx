@@ -1,15 +1,9 @@
 import STFlex from 'src/reactlibs/STFlex';
-import CustomSpinner from 'src/reactlibs/CustomSpinner';
+import MovieHeader from 'src/components/MovieHeader';
 
 const AboutMoviePage = () => (
     <STFlex data-at='wrapper'>
-        <CustomSpinner
-            size={150}
-            color='primary'
-            variant='indeterminate'
-            thickness={5}
-            disableShrink
-        />     
+        <MovieHeader/> 
     </STFlex>
 )
 
