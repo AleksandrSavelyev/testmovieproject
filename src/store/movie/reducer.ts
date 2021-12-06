@@ -4,6 +4,7 @@ import { IMovie } from './types';
 
 export interface IMovies {
     movies: IMovie[];
+    isPressedSearchButton: boolean;
     review: any;
     loaded: boolean;
     filters: Filters,
@@ -25,6 +26,7 @@ export type Filters = {
 
 const initialState: IMovies = {
     movies: [],
+    isPressedSearchButton: false,
     review: [],
     loaded: false,
     currenntMovieId: '', 
@@ -57,6 +59,12 @@ const reducer = (state = initialState, action: Action) => {
             ...state,
             loaded: true,
         };
+    }
+    case ActionTypes.SET_ON_PRESSED: {
+        return {
+            ...state,
+            isPressedSearchButton: !state.isPressedSearchButton,
+        }
     }
     case ActionTypes.SET_FILTER_INFO: {
         return {

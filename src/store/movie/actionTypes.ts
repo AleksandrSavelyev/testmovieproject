@@ -19,7 +19,8 @@ enum ActionTypes {
     GET_NOW_PLAYING_MOVIES = '@@movie/GET_NOW_PLAYING_MOVIES',
     SET_MOVIE_INFO_TO_STORE ='@@movie/SET_MOVIE_INFO_TO_STORE',
     SET_REVIEW = '@@movie/SET_REVIEW',
-    GET_REVIEW = '@@movie/GET_REVIEW'
+    GET_REVIEW = '@@movie/GET_REVIEW',
+    SET_ON_PRESSED = '@@movie/SET_ON_PRESSED',
 }
 
 export default ActionTypes;

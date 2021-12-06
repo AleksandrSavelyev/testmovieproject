@@ -10,7 +10,9 @@ const FilterByName: FC<TProps> = ({ searchMovieName }) => {
        searchMovieName(event.target.value);
    }
 
-    return <CustomInput onChange={handleChange} />
+    return (
+        <CustomInput onChange={handleChange} />
+    )
 };
 
 export default FilterByName;

@@ -12,6 +12,7 @@ export const getVoteAverage = (state: IMovies) => state.filters['vote_average.lt
 export const getSearchMovieName = (state: IMovies) => state.searchMovieName;
 export const getCurrentLanguage = (state:IMovies) => state.filters['language'];
 export const getReview = (state: any) =>  state.review;
+export const getPressed = (state: IMovies) => state.isPressedSearchButton;
 
 export const sortedMoviesSelector = createSelector(
     [getMovies, getSearchMovieName],

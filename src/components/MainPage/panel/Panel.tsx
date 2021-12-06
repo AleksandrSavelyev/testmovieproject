@@ -17,11 +17,12 @@ import {
 import SortBy from 'src/components/SortBy';
 import DatePicker from 'src/reactlibs/DatePicker';
 import VoteAverage from 'src/components/VoteAverage';
-import FilterByName from 'src/components/FilterByName';
 import LanguageDropDown from 'src/components/LanguageDropDown';
+import SearchButton from 'src/components/SearchButton';
 
 const Panel = () => {
     const { t } = useTranslation();
+
     return (
         <Wrapper data-at='wrapper'>
             <WrapperVote data-at='wrapper_wrapper-vote'>
@@ -34,7 +35,7 @@ const Panel = () => {
             </WrapperVote>
             <WrapperSortByName data-at='wrapper_wrapper-sort-by-name'>
                 <WrapperDivByName>
-                    <FilterByName data-at='wrapper-sort-by-name_filter-by-name' />
+                    <SearchButton/>
                 </WrapperDivByName>
             </WrapperSortByName>
             <WrapperLanguage data-at='wrapper_wrapper-language'>

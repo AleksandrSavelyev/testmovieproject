@@ -29,6 +29,10 @@ export const WrapperSortByName = styled('div')<ICTypes>`
   height: 100%;
   display: flex;
   align-items: flex-end;
+    &:focus {
+      width: 2000px;
+      border: solid;
+    }
 `;
 
 export const WrapperLanguage = styled('div')<ICTypes>`

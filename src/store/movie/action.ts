@@ -19,4 +19,5 @@ export const setLanguagesToStore = (payload: Array<string>) => ({ type: ActionTy
 export const getNowPlayingMovies = () => ({ type: ActionTypes.GET_NOW_PLAYING_MOVIES });
 export const setRiview = (payload: string) => ({ type: ActionTypes.SET_REVIEW, payload });
 export const getReview = (payload: string) => ({ type: ActionTypes.GET_REVIEW, payload });
+export const setOnPressed = () => ({ type: ActionTypes.SET_ON_PRESSED });
 
